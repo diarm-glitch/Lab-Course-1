@@ -10,25 +10,29 @@ body {
 .hero {
     background: linear-gradient(180deg, #1e88e5 0%, #42a5f5 100%);
     color:white;
-    padding: 20px 6%;
-    min-height:383px;
+    padding: 20px 80px 60px;
+    min-height:296px;
+    border-top: 2px solid #087dcc;
+    border-bottom: 2px solid #087dcc;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1080px;
+    margin: 0 auto;
     gap:24px;
 }
 
 .logo img {
-    width:250px;
+    width:130px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap:18px;
+    gap:0;
     flex-wrap: wrap;
 }
 
@@ -36,25 +40,41 @@ body {
     color:white;
     text-decoration: none;
     font-size: 18px;
-    border-right:3px solid white;
-    padding-right:14px;
+    font-weight: 400;
+    margin: 0;
+    padding:0 12px;
+    position: relative;
 }
 
-.nav-links a:last-child {
-    border-right:none;
+.nav-links a:not(:last-child)::after {
+    content: "";
+    width: 2px;
+    height: 34px;
+    background: white;
+    position: absolute;
+    right: -1px;
+    top:50%;
+    transform: translateY(-50%);
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap:18px;
-    flex-shrink:0;
+    gap:20px;
 }
 
 .signin {
     color:black;
-    text-decoration: none;
     font-size:18px;
+}
+
+.get-started {
+    border:2px solid white;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
 .btn-outline {
@@ -68,27 +88,28 @@ body {
 
 .hero-content {
     text-align:center;
-    margin-top:45px;
+    margin-top:38px;
 }
 
 .hero-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(36px, 5vw, 66px);
-    margin:0;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.05;
+    margin: 0;
     font-weight: 800;
 }
 
 .hero-content p {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: clamp(20px, 2.5vw, 30px);
+    font-size: 26px;
     margin:0 0 20px;
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap:90px;
+    gap: 94px;
     flex-wrap:wrap;
 }
 
@@ -103,6 +124,16 @@ body {
 }
 
 .btn-secondary {
+    border:2px solid white;
+    color:white;
+}
+
+.book-btn {
+    background: white;
+    color:#078af2;
+}
+
+.outline-btn {
     border:2px solid white;
     color:white;
 }
