@@ -465,3 +465,145 @@ html {
         font-size: 30px;
     }
 }
+
+
+/*ROADSIDE ASSISTANCE*/
+
+.assistance {
+    background: #f1f6ff;
+    padding: 54px 10% 28px;
+    text-align: center;
+}
+
+.assistance h2 {
+    color: #078af2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 0 70px;
+}
+
+.assistance-content {
+    max-width: 920px;
+    margin: 0 auto 24px;
+    display: grid;
+    grid-template-columns: 1fr 240px 1fr;
+    gap: 76px 80px;
+    align-items: center;
+}
+
+.assistance-content .assistance-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.assistance-content .assistance-item:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.assistance-content .assistance-item:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.assistance-content .assistance-item:nth-child(6) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.assistance-content .assistance-item:nth-child(3),
+.assistance-content .assistance-item:nth-child(6) {
+    transform: translateX(75px);
+}
+
+.assistance-item {
+    text-align: left;
+}
+
+.assistance-item h3 {
+    color: #078af2;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.assistance-item p {
+    color: #1e1e1e;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.18;
+    margin: 0;
+}
+
+.assistance-center {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.assistance-center span {
+    color: #1e1e1e;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.assistance-center strong {
+    color: black;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: .95;
+}
+
+.package-btn {
+    display: inline-block;
+    min-width: 160px;
+    background: #2f80ed;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 14px 28px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform: translateX(0);
+}
+
+.package-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.package-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 850px) {
+    .assistance-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        max-width: 420px;
+    }
+
+    .assistance-center {
+        grid-column: auto;
+        grid-row: auto;
+        order: -1;
+    }
+
+    .assistance-spacer {
+        display: none;
+    }
+
+    .assistance h2 {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+    .assistance-item {
+        text-align: center;
+    }
+}
