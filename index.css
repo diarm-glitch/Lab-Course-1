@@ -180,3 +180,13 @@ body {
         text-align: center;
     }
 }
+
+.about {
+    background: #f1f6ff;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
