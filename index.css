@@ -211,12 +211,12 @@ html {
     grid-template-columns: repeat(3, 212px);
     gap:16px 20px;
     justify-content: center;
-    margin-bottom: 28px;
+    margin:0 auto 28px;
 }
 
 .service-card {
    width:212px;
-   height: 109;
+   height: 109px;
    background: white;
    border: 1px solid #c8c8c8;
    border-radius: 6px;
@@ -231,7 +231,8 @@ html {
    width:48px;
    height: 48px;
    object-fit: contain;
-   margin-top: 8px;
+   display: block;
+   margin-bottom: 6px;
 }
 
 .service-card h3 {
@@ -254,13 +255,13 @@ html {
 }
 
 @media (max-width:760px) {
-    .service-card {
-        grid-template-columns:212px;
+    .service-grid {
+        grid-template-columns: repeat(2, 212px);
     }
 }
 
 @media (max-width:500px) {
     .service-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 212px;
     }
 }
