@@ -356,6 +356,12 @@ html {
     transform: translateY(0);
 }
 
+.tuning-icon {
+    width: 78px;
+    height: 78px;
+    transform: scale(1.25);
+}
+
 @media (max-width:760px) {
     .service-grid {
         grid-template-columns: repeat(2, 245px);
