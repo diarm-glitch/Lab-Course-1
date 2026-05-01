@@ -203,26 +203,42 @@ html {
     color:#078af2;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 42px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 212px);
+    gap:16px 20px;
+    justify-content: center;
+    margin-bottom: 28px;
 }
 
 .service-card {
-    background: white;
-    border:1px solid #c8c8c8;
-    border-radius: 6px;
-    padding:18px 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+   width:212px;
+   height: 109;
+   background: white;
+   border: 1px solid #c8c8c8;
+   border-radius: 6px;
+   box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 
 .service-icon {
-    font-size:38px;
-    margin-bottom:10px;
+   width:48px;
+   height: 48px;
+   object-fit: contain;
+   margin-top: 8px;
 }
 
 .service-card h3 {
-    margin:0;
-    font-size: 18px;
-    color:#1d1d1d;
+    margin: 0;
+    color:#1e1e1e;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .services-btn {
@@ -230,16 +246,16 @@ html {
     background: #078af2;
     color:white;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    padding: 16px 32px;
+    padding: 14px 28px;
     border-radius: 18px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
-@media (max-width:800px) {
+@media (max-width:760px) {
     .service-card {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:212px;
     }
 }
 
