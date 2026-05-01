@@ -118,36 +118,59 @@
             </div>
 
             <div class="car-options">
-                <a href="#" class="car-options">
+                <a href="#" class="car-option">
                     <img src="ph_sparkle1.png" alt="New Cars">
                     <span>New</span>
                 </a>
 
-                <a href="#" class="car-options">
+                <a href="#" class="car-option">
                     <img src="ri_car-line.png" alt="Used Cars">
                     <span>Used</span>
                 </a>
 
-                <a href="#" class="car-options">
+                <a href="#" class="car-option">
                     <img src="iconoir_ev-tag.png" alt="EV">
                     <span>EVs</span>
                 </a>
 
-                <a href="#" class="car-options">
+                <a href="#" class="car-option">
                     <img src="icons8-suv-50.png" alt="SUV">
                     <span>SUVs</span>
                 </a>
 
-                <a href="#" class="car-options">
+                <a href="#" class="car-option">
                     <img src="ph_van-light.png" alt="Van">
                     <span>Vans</span>
                 </a>
 
-                <a href="#" class="car-options">
+                <a href="#" class="car-option">
                     <img src="material-symbols_ev-station.png" alt="Hybrid">
                     <span>Hybrids</span>
                 </a>
             </div>
         </section>
+
+        <script>
+            const carTabs = document.querySelectorAll('.car-tab');
+            const searchInput = document.querySelector('search-are input');
+
+            carTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    carTabs.forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    tab.classList.add('active');
+
+                    if (tab.textContent === 'Find a car') {
+                        searchInput.Placeholder = 'Search by brand...';
+                    } else if (tab.textContent === 'Sell my car') {
+                        searchInput.Placeholder = 'Enter your car model...';
+                    } else if (tab.textContent === 'Read reviews') {
+                        searchInput.Placeholder = 'Search reviews...';
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
