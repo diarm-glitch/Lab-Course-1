@@ -1,0 +1,35 @@
+/*HEADER*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.hero {
+    background: linear-gradient(180deg, #1e88e5 0%, #42a5f5 100%);
+    color:white;
+    padding: 22px 24px -30px;
+    min-height:296px;
+    border-top: 2px solid #087dcc;
+    border-bottom: 2px solid #087dcc;
+}
+
+.navbar {
+    display: grid;
+    align-items: start;
+    width:100%;
+    gap:16px;
+}
+
+.logo {
+    width:200px;
+    display: block;
+}
+
+.logo-link {
+    display: inline-block;
+}
