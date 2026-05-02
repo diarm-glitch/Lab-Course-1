@@ -1,6 +1,9 @@
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Services from "./components/Services";
+import BuySell from "./components/BuySell";
+import Assistance from "./components/Assistance";
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -23,6 +26,12 @@ function App() {
       <About />
 
       <Services />
+
+      <BuySell />
+
+      <Assistance />
+
+      <Footer/>
     </>
   );
 }

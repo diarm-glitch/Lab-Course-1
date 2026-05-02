@@ -834,3 +834,92 @@ html {
     margin-bottom: 10px;
     color: #1e5799;
 }
+
+
+/*BUY / SELL */
+
+.assistance {
+  padding: 80px 10%;
+  background: #f5f7fa;
+}
+
+.assistance-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.assistance-text {
+  flex: 1;
+}
+
+.assistance-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.assistance-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.assistance-text ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.assistance-text li {
+  margin-bottom: 10px;
+}
+
+.assist-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #2d7dd2;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.assistance-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+
+/* ASSISTENCE* */
+
+.footer {
+  background: #0f172a;
+  color: white;
+  padding: 60px 10% 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 15px;
+}
+
+.footer a {
+  display: block;
+  color: #ccc;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+}
