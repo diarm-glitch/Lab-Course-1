@@ -1,19 +1,29 @@
 function About() {
   return (
-    <section className="about" id="about">
+    <section id="about" className="about">
       <div className="about-image">
-        <img src="/about.jpg" alt="About us" />
+        <img src="/about.jpg" alt="Mechanic" />
       </div>
 
       <div className="about-text">
         <h2>About Us</h2>
+
         <p>
-          We provide high-quality vehicle services including diagnostics, repair,
-          and maintenance. Our goal is to keep your car running smoothly and safely.
+          At Customs Bay Garage, we aim to simplify everything related to your vehicle by bringing essential services 
+          into one place. Whether you need routine maintenance, professional repairs, or urgent assistance, our 
+          platform connects you with trusted mechanics and reliable solutions quickly and efficiently. 
+          Our goal is to remove the stress from vehicle ownership and make every step straightforward for our users.
         </p>
+
         <p>
-          With years of experience and a team of skilled professionals, we ensure
-          top-level service for every customer.
+          We also provide a space where users can buy or sell cars with confidence. By combining service booking, 
+          vehicle marketplace features, and emergency support, we create a complete ecosystem tailored to modern 
+          drivers. Every feature is designed with convenience, transparency, and speed in mind.
+        </p>
+
+        <p>
+          Our mission is to deliver a seamless experience where technology meets automotive care. 
+          We believe that managing your vehicle should be simple, accessible, and dependable—no matter the situation.
         </p>
       </div>
     </section>

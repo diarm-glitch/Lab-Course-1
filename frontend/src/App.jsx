@@ -9,19 +9,19 @@ function App() {
   return (
     <>
       <header className="hero">
-        <Navbar />
-        <div className="hero-content">
-          <h1>Customs Bay Garage</h1>
-          <p>
-            Reliable car service, buying & selling, and roadside assistance — all in one place.
-          </p>
+  <Navbar />
 
-          <div className="hero-buttons">
-            <a href="#" className="primary-btn">Get Started</a>
-            <a href="#" className="secondary-btn">Learn More</a>
-          </div>
-        </div>
-      </header>
+  <section className="hero-content">
+    <h1>All your vehicle needs, in one place</h1>
+    <p>Book services, find mechanics, or get help instantly</p>
+
+    <div className="hero-buttons">
+      <a href="#" className="book-btn">Book a Service</a>
+      <a href="#" className="outline-btn">Buy or Sell Cars</a>
+      <a href="#" className="outline-btn">Emergency Pickup</a>
+    </div>
+  </section>
+</header>
 
       <About />
 

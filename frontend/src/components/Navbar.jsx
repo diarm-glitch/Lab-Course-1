@@ -2,7 +2,11 @@ function Navbar() {
   return (
     <nav className="navbar">
       <a href="#top" className="logo-link">
-        <span>CBG</span>
+        <img
+            className="logo"
+            src="/cbgLogo.png"
+            alt="CBG Logo"
+        />
       </a>
 
       <div className="nav-links">

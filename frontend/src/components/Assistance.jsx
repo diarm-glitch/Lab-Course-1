@@ -1,30 +1,44 @@
 function Assistance() {
   return (
-    <section className="assistance">
-      <div className="assistance-container">
-        
-        <div className="assistance-text">
-          <h2>Roadside Assistance</h2>
+    <section id="assistance" className="assistance">
+      <h2>Roadside Assistance Services</h2>
+
+      <div className="assistance-content">
+        <div className="assistance-item">
+          <h3>Tire damage</h3>
+          <p>We assist in changing the tire.</p>
+        </div>
+
+        <div className="assistance-center">
+          <span>service</span>
+          <strong>24h</strong>
+        </div>
+
+        <div className="assistance-item">
+          <h3>In case of accident</h3>
           <p>
-            Stuck on the road? We’ve got you covered. Our team provides fast and
-            reliable roadside assistance whenever you need it.
+            The vehicle will be transported according to the client's request,
+            to the client's preferred service or location.
           </p>
-
-          <ul>
-            <li>24/7 Emergency Support</li>
-            <li>Vehicle Towing</li>
-            <li>Battery Jump Start</li>
-            <li>Flat Tire Help</li>
-          </ul>
-
-          <a href="#" className="assist-btn">Get Help Now</a>
         </div>
 
-        <div className="assistance-image">
-          <img src="/assistance.jpg" alt="Roadside assistance" />
+        <div className="assistance-item">
+          <h3>Ignition assistance</h3>
+          <p>Cable assistance in case of power outage</p>
         </div>
 
+        <div className="assistance-spacer"></div>
+
+        <div className="assistance-item">
+          <h3>Other defect</h3>
+          <p>
+            The vehicle will be transported according to the client's request,
+            to the client's preferred service or location.
+          </p>
+        </div>
       </div>
+
+      <a href="#" className="package-btn">Pakot</a>
     </section>
   );
 }
