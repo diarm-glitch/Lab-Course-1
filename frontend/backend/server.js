@@ -5,6 +5,8 @@ require('dotenv').config();
 const db = require('./config/db');
 const authRoutes = require('./routes/auth.routes');
 const customerRoutes = require('./routes/customer.routes');
+const vehicleRoutes = require('./routes/vehicle.routes');
+const serviceTypeRoutes = require('./routes/serviceType.routes');
 
 const app = express();
 
@@ -15,6 +17,9 @@ app.use('/auth', authRoutes);
 
 app.use('/customers', customerRoutes);
 
+app.use('/vehicles', vehicleRoutes);
+
+app.use('/service-types', serviceTypeRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running');
