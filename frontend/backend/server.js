@@ -14,6 +14,7 @@ const partRoutes = require('./routes/part.routes');
 const servicePartRoutes = require('./routes/servicePart.routes');
 const invoiceRoutes = require('./routes/invoice.routes');
 const serviceReminderRoutes = require('./routes/serviceReminder.routes');
+const dashboardRoutes = require('./routes/dashboard.routes');
 
 const app = express();
 
@@ -41,6 +42,8 @@ app.use('/service-parts', servicePartRoutes);
 app.use('/invoices', invoiceRoutes);
 
 app.use('/service-reminders', serviceReminderRoutes);
+
+app.use('/dashboard', dashboardRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running');
