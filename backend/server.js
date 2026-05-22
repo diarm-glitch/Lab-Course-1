@@ -15,6 +15,9 @@ const servicePartRoutes = require('./routes/servicePart.routes');
 const invoiceRoutes = require('./routes/invoice.routes');
 const serviceReminderRoutes = require('./routes/serviceReminder.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
+const usersRoutes = require('./routes/users.routes');
+const rolesRoutes = require('./routes/roles.routes');
+const userRolesRoutes = require('./routes/userRoles.routes');
 
 const app = express();
 
@@ -44,6 +47,12 @@ app.use('/invoices', invoiceRoutes);
 app.use('/service-reminders', serviceReminderRoutes);
 
 app.use('/dashboard', dashboardRoutes);
+
+app.use('/users', usersRoutes);
+
+app.use('/roles', rolesRoutes);
+
+app.use('/user-roles', userRolesRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running');
