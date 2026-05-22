@@ -2,7 +2,7 @@ const db = require('../config/db');
 const bcrypt = require('bcryptjs');
 
 exports.getUsers = (req, res) => {
-  db.query('SELECT id, emri, mbiemri, email, phone_number, email_confirmed, lockout_enabled, access_failed_count, data_krijimit, statusi FROM Users', (err, results) => {
+  db.query('SELECT id, emri, mbiemri, email, phone_number, data_krijimit, statusi FROM Users', (err, results) => {
     if (err) return res.status(500).json({ message: 'Database error', error: err });
     res.status(200).json(results);
   });
@@ -10,7 +10,7 @@ exports.getUsers = (req, res) => {
 
 exports.getUserById = (req, res) => {
   db.query(
-    'SELECT id, emri, mbiemri, email, phone_number, email_confirmed, lockout_enabled, access_failed_count, data_krijimit, statusi FROM Users WHERE id = ?',
+    'SELECT id, emri, mbiemri, email, phone_number, data_krijimit, statusi FROM Users WHERE id = ?',
     [req.params.id],
     (err, results) => {
       if (err) return res.status(500).json({ message: 'Database error', error: err });
