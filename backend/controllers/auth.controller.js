@@ -77,15 +77,47 @@ exports.login = (req, res) => {
             {expiresIn: '1h'}
         );
 
+        const refreshToken = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+
         res.status(200).json ({
             message:'Login successful',
             token:token,
+            refreshToken: refreshToken,
             user: {
                 id:user.id,
                 emri:user.emri,
                 mbiemri:user.mbiemri,
                 email:user.email
             }
+        });
+    });
+};
+
+exports.refreshToken = (req, res) => {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+        return res.status(401).json({ message: 'Refresh token required'});
+    }
+
+    jwt.verify(refreshToken, process.env.JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({message: 'Invalid refresh token'});
+        }
+
+        const newToken = jwt.sign(
+            { id: user.id, email: user.email},
+            process.env.JWT_SECRET,
+            {expiresIn: '1h'}
+        );
+
+        res.status(200).json({
+            message:"Token refreshed successfully",
+            token:newToken
         });
     });
 };
