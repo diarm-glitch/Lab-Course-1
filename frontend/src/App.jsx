@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Customers from "./pages/Customers";
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -57,7 +58,16 @@ function App() {
           <Dashboard />
         </ProtectedRoute>
       } />
-      
+
+      <Route 
+      path="/customers"
+      element = {
+        <ProtectedRoute>
+          <Customers />
+        </ProtectedRoute>
+      }
+      />
+
     </Routes>
     </BrowserRouter>
   );
