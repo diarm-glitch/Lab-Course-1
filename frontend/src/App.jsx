@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -49,7 +50,14 @@ function App() {
 
       <Route path="/register" element={<Register />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route 
+      path="/dashboard" 
+      element = {
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      } />
+      
     </Routes>
     </BrowserRouter>
   );

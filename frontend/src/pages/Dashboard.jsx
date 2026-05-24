@@ -1,6 +1,21 @@
 function Dashboard() {
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+    };
+
     return (
-        <h1>Dashboard Pages</h1>
+        <div className="container mt-5">
+            <h1>Dashboarc Page</h1>
+
+            <button 
+            className="btn btn-danger mt-3"
+            onClick={handleLogout}
+            >
+
+                Logout
+            </button>
+        </div>
     );
 }
 
