@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Services from "./components/Services";
@@ -5,34 +7,51 @@ import BuySell from "./components/BuySell";
 import Assistance from "./components/Assistance";
 import Footer from "./components/Footer"
 
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+
+function HomePage() {
+  retrun (
+    <>
+    <header className="hero">
+      <Navbar />
+
+      <section className="heo-content">
+        <h1>All your vehicle needs, in one place</h1>
+        <p>Book service, find mechanics, or get help instantly</p>
+
+        <div className="hero-buttons">
+          <a href="#" className="book-btn">Book a service</a>
+          <a href="#" className="outline-btn">Buy or sell</a>
+          <a href="#" className="outline-btn">Emergency Pickup</a>
+        </div>
+      </section>
+    </header>
+
+    <About />
+    <Service />
+    <BuySell />
+    <Assistance />
+    <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
-    <>
-      <header className="hero">
-  <Navbar />
+    <BrowserRouter>
+    <Routes>
 
-  <section className="hero-content">
-    <h1>All your vehicle needs, in one place</h1>
-    <p>Book services, find mechanics, or get help instantly</p>
+      <Route path="/" element={<HomePage />} />
 
-    <div className="hero-buttons">
-      <a href="#" className="book-btn">Book a Service</a>
-      <a href="#" className="outline-btn">Buy or Sell Cars</a>
-      <a href="#" className="outline-btn">Emergency Pickup</a>
-    </div>
-  </section>
-</header>
+      <Route path="/login" element={<Login />} />
 
-      <About />
+      <Route path="/register" element={<Register />} />
 
-      <Services />
-
-      <BuySell />
-
-      <Assistance />
-
-      <Footer/>
-    </>
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
