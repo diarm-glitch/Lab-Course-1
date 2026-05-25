@@ -29,3 +29,31 @@ exports.getPartsStock = (req, res) => {
     }
   );
 };
+
+exports.getTotalCustomers = (req, res) => {
+  db.query(
+    'SELECT COUNT(*) AS total_customers FROM customers',
+    (err, results) => {
+      if (err)
+        return res.status(500).json({
+          message: 'Database error',
+          error: err,
+        });
+
+        res.status(200).json(results[0]);
+    }
+  );
+};
+
+exports.getTotalVehicles = (req, res) => {
+  db.query(
+    'SELECT COUNT(*) AS total_vehicles FROM vehicles',
+    (err, results) => {
+      if (err)
+        return res.status(500).json({
+        message: 'Database error',
+        error: err,
+      });
+    }
+  );
+};

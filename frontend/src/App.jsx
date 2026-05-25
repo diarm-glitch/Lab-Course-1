@@ -8,6 +8,7 @@ import Services from "./components/Services";
 import BuySell from "./components/BuySell";
 import Assistance from "./components/Assistance";
 import Footer from "./components/Footer"
+import Sidebar from "./components/Sidebar";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -54,6 +55,17 @@ function HomePage() {
   );
 }
 
+function AdminLayout({ children }) {
+  return (
+    <div className="d-flex">
+      <Sidebar />
+      <div className="flex-grow-1 p-4">
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -69,7 +81,9 @@ function App() {
       path="/dashboard" 
       element = {
         <ProtectedRoute>
-          <Dashboard />
+          <AdminLayout>
+            <Dashboard />
+          </AdminLayout>
         </ProtectedRoute>
       } />
 
@@ -77,7 +91,9 @@ function App() {
       path="/customers"
       element = {
         <ProtectedRoute>
-          <Customers />
+          <AdminLayout>
+            <Customers />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -86,7 +102,9 @@ function App() {
       path="/Vehicles"
       element = {
         <ProtectedRoute>
-          <Vehicles />
+          <AdminLayout>
+            <Vehicles />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -95,7 +113,9 @@ function App() {
       path="/service-types"
       element={
         <ProtectedRoute>
-          <ServiceTypes />
+          <AdminLayout>
+            <ServiceTypes />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -104,7 +124,9 @@ function App() {
       path="/technicians"
       element={
         <ProtectedRoute>
-          <Technicians />
+          <AdminLayout>
+            <Technicians />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -113,7 +135,9 @@ function App() {
       path="/appointments"
       element={
         <ProtectedRoute>
-          <Appointments />
+          <AdminLayout>
+            <Appointments />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -122,7 +146,9 @@ function App() {
       path="/parts"
       element={
         <ProtectedRoute>
-          <Parts />
+          <AdminLayout>
+            <Parts />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -131,7 +157,9 @@ function App() {
       path="/service-records"
       element={
         <ProtectedRoute>
-          <ServiceRecords />
+          <AdminLayout>
+            <ServiceRecords />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -140,7 +168,9 @@ function App() {
       path="/service-parts"
       element={
         <ProtectedRoute>
-          <ServiceParts />
+          <AdminLayout>
+            <ServiceParts />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -149,7 +179,9 @@ function App() {
       path="/invoices"
       element={
         <ProtectedRoute>
-          <Invoices />
+          <AdminLayout>
+            <Invoices />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -158,7 +190,9 @@ function App() {
       path="/service-reminders"
       element={
         <ProtectedRoute>
-          <ServiceReminders />
+          <AdminLayout>
+            <ServiceReminders />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -167,7 +201,9 @@ function App() {
       path="/roles"
       element={
         <ProtectedRoute>
-          <Roles />
+          <AdminLayout>
+            <Roles />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -176,7 +212,9 @@ function App() {
       path="/user-roles"
       element={
         <ProtectedRoute>
-          <UserRoles />
+          <AdminLayout>
+            <UserRoles />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -185,7 +223,9 @@ function App() {
       path="/users"
       element={
         <ProtectedRoute>
-          <Users />
+          <AdminLayout>
+            <Users />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -194,7 +234,9 @@ function App() {
       path="/user-claims"
       element={
       <ProtectedRoute>
-        <UserClaims />
+        <AdminLayout>
+          <UserClaims />
+        </AdminLayout>
       </ProtectedRoute>
       }
       />
@@ -203,7 +245,9 @@ function App() {
       path="/user-tokens"
       element={
         <ProtectedRoute>
-          <UserTokens />
+          <AdminLayout>
+            <UserTokens />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
