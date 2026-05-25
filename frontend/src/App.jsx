@@ -24,6 +24,7 @@ import ServiceReminders from "./pages/ServiceReminders";
 import Roles from "./pages/Roles";
 import UserRoles from "./pages/UserRoles";
 import Users from "./pages/Users";
+import UserClaims from "./pages/UserClaims";
 
 function HomePage() {
   return (
@@ -164,9 +165,9 @@ function App() {
       <Route
       path="/roles"
       element={
-        <protectedRoute>
+        <ProtectedRoute>
           <Roles />
-        </protectedRoute>
+        </ProtectedRoute>
       }
       />
 
@@ -185,6 +186,15 @@ function App() {
         <ProtectedRoute>
           <Users />
         </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/user-claims"
+      element={
+      <ProtectedRoute>
+        <UserClaims />
+      </ProtectedRoute>
       }
       />
 

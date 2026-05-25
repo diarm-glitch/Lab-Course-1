@@ -18,6 +18,7 @@ const dashboardRoutes = require('./routes/dashboard.routes');
 const usersRoutes = require('./routes/users.routes');
 const rolesRoutes = require('./routes/roles.routes');
 const userRolesRoutes = require('./routes/userRoles.routes');
+const userClaimsRoutes = require('./routes/userClaims.routes');
 
 const app = express();
 
@@ -53,6 +54,8 @@ app.use('/users', usersRoutes);
 app.use('/roles', rolesRoutes);
 
 app.use('/user-roles', userRolesRoutes);
+
+app.use('/user-claims', userClaimsRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running');
