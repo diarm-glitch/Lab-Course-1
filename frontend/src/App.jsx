@@ -18,6 +18,7 @@ import Technicians from "./pages/Technicians";
 import Appointments from "./pages/Appointments";
 import Parts from "./pages/Parts";
 import ServiceRecords from "./pages/ServiceRecords";
+import ServiceParts from "./pages/ServiceParts";
 
 function HomePage() {
   retrun (
@@ -127,7 +128,16 @@ function App() {
         </ProtectedRoute>
       }
       />
-      
+
+      <Route 
+      path="/service-parts"
+      element={
+        <ProtectedRoute>
+          <ServiceParts />
+        </ProtectedRoute>
+      }
+      />
+
     </Routes>
     </BrowserRouter>
   );
