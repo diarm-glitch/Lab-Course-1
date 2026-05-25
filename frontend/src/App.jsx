@@ -21,9 +21,10 @@ import ServiceRecords from "./pages/ServiceRecords";
 import ServiceParts from "./pages/ServiceParts";
 import Invoices from "./pages/Invoices";
 import ServiceReminders from "./pages/ServiceReminders";
+import Roles from "./pages/Roles";
 
 function HomePage() {
-  retrun (
+  return (
     <>
     <header className="hero">
       <Navbar />
@@ -41,7 +42,7 @@ function HomePage() {
     </header>
 
     <About />
-    <Service />
+    <Services />
     <BuySell />
     <Assistance />
     <Footer />
@@ -155,6 +156,15 @@ function App() {
         <ProtectedRoute>
           <ServiceReminders />
         </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/roles"
+      element={
+        <protectedRoute>
+          <Roles />
+        </protectedRoute>
       }
       />
 
