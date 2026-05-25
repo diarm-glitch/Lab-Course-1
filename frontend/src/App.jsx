@@ -17,6 +17,7 @@ import ServiceTypes from "./pages/ServiceTypes";
 import Technicians from "./pages/Technicians";
 import Appointments from "./pages/Appointments";
 import Parts from "./pages/Parts";
+import ServiceRecords from "./pages/ServiceRecords";
 
 function HomePage() {
   retrun (
@@ -118,6 +119,15 @@ function App() {
       }
       />
 
+      <Route
+      path="/service-records"
+      element={
+        <ProtectedRoute>
+          <ServiceRecords />
+        </ProtectedRoute>
+      }
+      />
+      
     </Routes>
     </BrowserRouter>
   );
