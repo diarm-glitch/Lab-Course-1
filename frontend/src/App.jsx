@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import Vehicles from "./pages/Vehicles";
 import ServiceTypes from "./pages/ServiceTypes";
 import Technicians from "./pages/Technicians";
+import Appointments from "./pages/Appointments";
 
 function HomePage() {
   retrun (
@@ -94,6 +95,15 @@ function App() {
       element={
         <ProtectedRoute>
           <Technicians />
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/appointments"
+      element={
+        <ProtectedRoute>
+          <Appointments />
         </ProtectedRoute>
       }
       />
