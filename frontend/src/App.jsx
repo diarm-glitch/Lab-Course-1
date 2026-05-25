@@ -22,6 +22,7 @@ import ServiceParts from "./pages/ServiceParts";
 import Invoices from "./pages/Invoices";
 import ServiceReminders from "./pages/ServiceReminders";
 import Roles from "./pages/Roles";
+import UserRoles from "./pages/UserRoles";
 
 function HomePage() {
   return (
@@ -165,6 +166,15 @@ function App() {
         <protectedRoute>
           <Roles />
         </protectedRoute>
+      }
+      />
+
+      <Route
+      path="/user-roles"
+      element={
+        <ProtectedRoute>
+          <UserRoles />
+        </ProtectedRoute>
       }
       />
 
