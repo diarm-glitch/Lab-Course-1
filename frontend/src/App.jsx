@@ -19,6 +19,7 @@ import Appointments from "./pages/Appointments";
 import Parts from "./pages/Parts";
 import ServiceRecords from "./pages/ServiceRecords";
 import ServiceParts from "./pages/ServiceParts";
+import Invoices from "./pages/Invoices";
 
 function HomePage() {
   retrun (
@@ -134,6 +135,15 @@ function App() {
       element={
         <ProtectedRoute>
           <ServiceParts />
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/invoices"
+      element={
+        <ProtectedRoute>
+          <Invoices />
         </ProtectedRoute>
       }
       />
