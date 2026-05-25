@@ -20,6 +20,7 @@ import Parts from "./pages/Parts";
 import ServiceRecords from "./pages/ServiceRecords";
 import ServiceParts from "./pages/ServiceParts";
 import Invoices from "./pages/Invoices";
+import ServiceReminders from "./pages/ServiceReminders";
 
 function HomePage() {
   retrun (
@@ -144,6 +145,15 @@ function App() {
       element={
         <ProtectedRoute>
           <Invoices />
+        </ProtectedRoute>
+      }
+      />
+
+      <Route 
+      path="/service-reminders"
+      element={
+        <ProtectedRoute>
+          <ServiceReminders />
         </ProtectedRoute>
       }
       />
