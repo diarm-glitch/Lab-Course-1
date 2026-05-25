@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Vehicles from "./pages/Vehicles";
+import ServiceTypes from "./pages/ServiceTypes";
 
 function HomePage() {
   retrun (
@@ -74,6 +75,15 @@ function App() {
       element = {
         <ProtectedRoute>
           <Vehicles />
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/service-types"
+      element={
+        <ProtectedRoute>
+          <ServiceTypes />
         </ProtectedRoute>
       }
       />
