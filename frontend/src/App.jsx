@@ -12,6 +12,7 @@ import Footer from "./components/Footer"
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Vehicles from "./pages/Vehicles";
 
 function HomePage() {
   retrun (
@@ -64,6 +65,15 @@ function App() {
       element = {
         <ProtectedRoute>
           <Customers />
+        </ProtectedRoute>
+      }
+      />
+
+      <Route 
+      path="/Vehicles"
+      element = {
+        <ProtectedRoute>
+          <Vehicles />
         </ProtectedRoute>
       }
       />
