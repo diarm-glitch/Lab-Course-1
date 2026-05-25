@@ -25,6 +25,7 @@ import Roles from "./pages/Roles";
 import UserRoles from "./pages/UserRoles";
 import Users from "./pages/Users";
 import UserClaims from "./pages/UserClaims";
+import UserTokens from "./pages/UserTokens";
 
 function HomePage() {
   return (
@@ -195,6 +196,15 @@ function App() {
       <ProtectedRoute>
         <UserClaims />
       </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/user-tokens"
+      element={
+        <ProtectedRoute>
+          <UserTokens />
+        </ProtectedRoute>
       }
       />
 
