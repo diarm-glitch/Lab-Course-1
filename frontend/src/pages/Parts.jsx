@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function Parts() {
   const [parts, setParts] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     emertimi: "",
@@ -109,9 +110,26 @@ function Parts() {
     }
   };
 
+  const filteredParts = parts.filter((part) =>
+    part.emertimi?.toLowerCase().includes(search.toLowerCase()) ||
+    part.pershkrimi?.toLowerCase().includes(search.toLowerCase()) ||
+    part.kodi?.toLowerCase().includes(search.toLowerCase()) ||
+    part.furnitori?.toLowerCase().includes(search.toLowerCase()) ||
+    String(part.cmimi).includes(search) ||
+    String(part.sasia).includes(search)
+  );
+
   return (
     <div className="container mt-5">
       <h1>Parts</h1>
+
+      <input
+          type="text"
+          placeholder="Search parts..."
+          className="form-control mb-3"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -210,7 +228,7 @@ function Parts() {
         </thead>
 
         <tbody>
-          {parts.map((part) => (
+          {filteredParts.map((part) => (
             <tr key={part.id}>
               <td>{part.id}</td>
               <td>{part.emertimi}</td>

@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function Invoices() {
   const [invoices, setInvoices] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     service_record_id: "",
@@ -109,9 +110,26 @@ function Invoices() {
     }
   };
 
+  const filteredInvoices = invoices.filter((invoice) =>
+    String(invoice.service_record_id).includes(search) ||
+    String(invoice.shuma_punes).includes(search) ||
+    String(invoice.shuma_pjeseve).includes(search) ||
+    String(invoice.totali).includes(search) ||
+    invoice.statusi?.toLowerCase().includes(search.toLowerCase()) ||
+    invoice.data?.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
       <h1>Invoices</h1>
+
+      <input
+          type="text"
+          placeholder="Search invoices..."
+          className="form-control mb-3"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -209,7 +227,7 @@ function Invoices() {
         </thead>
 
         <tbody>
-          {invoices.map((invoice) => (
+          {filteredInvoices.map((invoice) => (
             <tr key={invoice.id}>
               <td>{invoice.id}</td>
               <td>{invoice.service_record_id}</td>

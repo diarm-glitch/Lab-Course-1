@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function Appointments() {
   const [appointments, setAppointments] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     vehicle_id: "",
@@ -108,9 +109,26 @@ function Appointments() {
     }
   };
 
+  const filteredAppointments = appointments.filter((appointment) =>
+    String(appointment.vehicle_id).includes(search) ||
+    appointment.data?.toLowerCase().includes(search.toLowerCase()) ||
+    appointment.ora?.toLowerCase().includes(search.toLowerCase()) ||
+    appointment.statusi?.toLowerCase().includes(search.toLowerCase()) ||
+    appointment.shenime?.toLowerCase().includes(search.toLowerCase()) ||
+    String(appointment.service_type_id).includes(search)
+  );
+
   return (
     <div className="container mt-5">
       <h1>Appointments</h1>
+
+      <input
+          type="text"
+          placeholder="Search appointments..."
+          className="form-control mb-3"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -205,7 +223,7 @@ function Appointments() {
         </thead>
 
         <tbody>
-          {appointments.map((appointment) => (
+          {filteredAppointments.map((appointment) => (
             <tr key={appointment.id}>
               <td>{appointment.id}</td>
               <td>{appointment.vehicle_id}</td>

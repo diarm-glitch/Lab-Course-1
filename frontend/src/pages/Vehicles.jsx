@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function Vehicles() {
     const [vehicles, setVehicles] = useState([]);
+    const [search, setSearch] = useState("");
 
     const [formData, setFormData] = useState({
         customer_id: "",
@@ -117,10 +118,27 @@ function Vehicles() {
         getVehicles();
     }, []);
 
+    const filteredVehicles = vehicles.filter((vehicle) =>
+    vehicle.marka?.toLowerCase().includes(search.toLowerCase()) ||
+    vehicle.modeli?.toLowerCase().includes(search.toLowerCase()) ||
+    vehicle.targa?.toLowerCase().includes(search.toLowerCase()) ||
+    vehicle.ngjyra?.toLowerCase().includes(search.toLowerCase()) ||
+    String(vehicle.viti).includes(search) ||
+    String(vehicle.customer_id).includes(search)
+    );
+
    return (
     <div className="container mt-5">
 
         <h1>Vehicles</h1>
+
+        <input
+            type="text"
+            placeholder="Search vehicles..."
+            className="form-control mb-3"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+        />
 
         <form className="mb-4" onSubmit={handleSubmit}>
             <div className="row">
@@ -231,7 +249,7 @@ function Vehicles() {
             </thead>
 
             <tbody>
-                {vehicles.map((vehicle) => (
+                {filteredVehicles.map((vehicle) => (
                     <tr key={vehicle.id}>
                         <td>{vehicle.id}</td>
                         <td>{vehicle.customer_id}</td>

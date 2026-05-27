@@ -115,7 +115,7 @@ function Customers() {
             placeholder="Search customers..."
             className="form-control mb-3"
             value={search}
-            onChnage={(e) => setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
             />
 
             <form className="mb-4" onSubmit={handleSubmit}>
