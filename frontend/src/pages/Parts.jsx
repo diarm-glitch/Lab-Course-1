@@ -67,7 +67,9 @@ function Parts() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/parts/${id}`);
+      if (window.confirm("Are you sure you want to delete this customer?")) {
+            await API.delete(`/customers/${id}`);
+          }
 
       alert("Part deleted successfully");
 

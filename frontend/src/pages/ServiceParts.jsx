@@ -62,7 +62,9 @@ function ServiceParts() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/service-parts/${id}`);
+      if (window.confirm("Are you sure you want to delete this customer?")) {
+          await API.delete(`/customers/${id}`);
+          }
 
       alert("Service part deleted successfully");
 

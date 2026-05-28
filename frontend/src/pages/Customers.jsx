@@ -34,7 +34,9 @@ function Customers() {
 
     const handleDelete = async (id) => {
         try {
+            if (window.confirm("Are you sure you want to delete this customer?")) {
             await API.delete(`/customers/${id}`);
+            }
 
             alert("Customers deleted successfully");
 

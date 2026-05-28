@@ -29,7 +29,7 @@ function Dashboard() {
       setTotalVehicles(vehiclesRes.data.total_vehicles);
       setTotalAppointments(totalAppointmentsRes.data.total_appointments);
       setTotalInvoices(totalInvoicesRes.data.total_invoices);
-      setLowStockParts(lowStockRes.data);
+      setLowStockParts(lowStockPartsRes.data);
     } catch (error) {
       console.log(error);
       alert("Failed to load dashboard data");

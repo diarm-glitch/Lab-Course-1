@@ -65,7 +65,9 @@ function ServiceReminders() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/service-reminders/${id}`);
+      if (window.confirm("Are you sure you want to delete this customer?")) {
+          await API.delete(`/customers/${id}`);
+          }
 
       alert("Service reminder deleted successfully");
 

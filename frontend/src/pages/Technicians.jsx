@@ -62,7 +62,9 @@ const Technicians = () => {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/technicians/${id}`);
+      if (window.confirm("Are you sure you want to delete this technicians?")) {
+            await API.delete(`/customers/${id}`);
+          }
 
       alert("Technician deleted successfully");
 

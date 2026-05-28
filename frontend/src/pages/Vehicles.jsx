@@ -62,7 +62,9 @@ function Vehicles() {
 
     const handleDelete = async (id) => {
         try {
-            await API.delete(`/vehicles/${id}`);
+            if (window.confirm("Are you sure you want to delete this vehicle?")) {
+            await API.delete(`/customers/${id}`);
+            }
 
             alert("Vehicle deleted successfully");
 

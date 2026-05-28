@@ -67,7 +67,9 @@ function Appointments() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/appointments/${id}`);
+      if (window.confirm("Are you sure you want to delete this appointment?")) {
+          await API.delete(`/customers/${id}`);
+          }
 
       alert("Appointment deleted successfully");
 

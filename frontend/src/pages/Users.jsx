@@ -62,7 +62,10 @@ function Users() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/users/${id}`);
+     if (window.confirm("Are you sure you want to delete this customer?")) {
+          await API.delete(`/customers/${id}`);
+        }
+
       alert("User deleted successfully");
       getUsers();
     } catch (error) {

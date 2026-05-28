@@ -59,7 +59,9 @@ const ServiceTypes = () => {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/service-types/${id}`);
+      if (window.confirm("Are you sure you want to delete this service type?")) {
+          await API.delete(`/customers/${id}`);
+        }
 
       alert("Service type deleted successfully");
 

@@ -69,7 +69,9 @@ function ServiceRecords() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/service-records/${id}`);
+      if (window.confirm("Are you sure you want to delete this service record?")) {
+            await API.delete(`/customers/${id}`);
+          }
 
       alert("Service record deleted successfully");
 
