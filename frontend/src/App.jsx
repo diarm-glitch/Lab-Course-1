@@ -34,13 +34,13 @@ function HomePage() {
     <header className="hero">
       <Navbar />
 
-      <section className="heo-content">
+      <section className="hero-content">
         <h1>All your vehicle needs, in one place</h1>
-        <p>Book service, find mechanics, or get help instantly</p>
+        <p>Book services, find mechanics, or get help instantly</p>
 
         <div className="hero-buttons">
-          <a href="#" className="book-btn">Book a service</a>
-          <a href="#" className="outline-btn">Buy or sell</a>
+          <a href="#" className="book-btn">Book a Service</a>
+          <a href="#" className="outline-btn">Buy or Sell Cars</a>
           <a href="#" className="outline-btn">Emergency Pickup</a>
         </div>
       </section>

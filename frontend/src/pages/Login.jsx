@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import API from "../api/api.js";
 
 function Login() {
@@ -19,9 +20,13 @@ function Login() {
             console.log(response.data);
 
             localStorage.setItem("token", response.data.token);
+
             alert("Login successful");
+
             window.location.href = "/dashboard";
+
         } catch (error) {
+
             console.log(error);
 
             alert("Login failed");
@@ -29,37 +34,47 @@ function Login() {
     };
 
     return (
-        <div className="container mt-5">
-            <h2>Login</h2>
+        <div className="login-page">
 
-            <form onSubmit={handleLogin}>
+            <div className="login-box">
 
-                <div className="mb-3">
-                    <label>Email</label>
+                <h2>Sign in</h2>
 
-                    <input
-                    type="email"
-                    className="form-control"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
+                <p className="auth-subtitle">
+                    Sign in to continue to your dashboard
+                </p>
 
-                <div className="mb-3">
-                    <label>Password</label>
+                <form onSubmit={handleLogin}>
 
                     <input
-                    type="password"
-                    className="form-control"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                        type="email"
+                        placeholder="email"
+                        className="login-input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
-                </div>
 
-                <button className="btn btn-primary">
-                    Login
-                </button>
-            </form>
+                    <input
+                        type="password"
+                        placeholder="password"
+                        className="login-input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+
+                    <button type="submit" className="login-btn">
+                        Sign in
+                    </button>
+
+                </form>
+
+                <p className="register-text">
+                    Don’t have an account?
+                    <Link to="/register"> Get Started</Link>
+                </p>
+
+            </div>
+
         </div>
     );
 }

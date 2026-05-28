@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav className="navbar">
       <a href="#top" className="logo-link">
         <img
-            className="logo"
-            src="/cbgLogo.png"
-            alt="CBG Logo"
+          className="logo"
+          src="/cbgLogo.png"
+          alt="CBG Logo"
         />
       </a>
 
@@ -17,8 +19,13 @@ function Navbar() {
       </div>
 
       <div className="nav-actions">
-        <a href="#" className="signin">Sign in</a>
-        <a href="#" className="get-started">Get Started</a>
+        <Link to="/login" className="signin">
+          Sign in
+        </Link>
+
+        <Link to="/register" className="get-started">
+          Get Started
+        </Link>
       </div>
     </nav>
   );
