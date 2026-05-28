@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 const ServiceTypes = () => {
   const [serviceTypes, setServiceTypes] = useState([]);
+  const [search, setSearch] = useState("");
   const [formData, setFormData] = useState({
     emertimi: "",
     pershkrimi: "",
@@ -104,9 +105,24 @@ const ServiceTypes = () => {
     }
   };
 
+  const filteredServiceTypes = serviceTypes.filter((type) =>
+  type.emertimi?.toLowerCase().includes(search.toLowerCase()) ||
+  type.pershkrimi?.toLowerCase().includes(search.toLowerCase()) ||
+  String(type.cmimi_baze).includes(search) ||
+  String(type.kohezgjatja_mesatare).includes(search)
+  );
+
   return (
     <div className="container mt-5">
       <h1>Service Types</h1>
+
+      <input
+        type="text"
+        placeholder="Search service types..."
+        className="form-control mb-3"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form className="mb-4" onSubmit={handleSubmit}>
         <div className="row">
@@ -181,7 +197,7 @@ const ServiceTypes = () => {
         </thead>
 
         <tbody>
-          {serviceTypes.map((service) => (
+          {filteredServiceTypes.map((service) => (
             <tr key={service.id}>
               <td>{service.id}</td>
               <td>{service.emertimi}</td>

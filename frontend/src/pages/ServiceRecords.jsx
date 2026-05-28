@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function ServiceRecords() {
   const [serviceRecords, setServiceRecords] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     appointment_id: "",
@@ -112,9 +113,27 @@ function ServiceRecords() {
     }
   };
 
+  const filteredServiceRecords = serviceRecords.filter((record) =>
+  String(record.appointment_id).includes(search) ||
+  String(record.vehicle_id).includes(search) ||
+  String(record.tekniku_id).includes(search) ||
+  record.pershkrimi?.toLowerCase().includes(search.toLowerCase()) ||
+  record.data_fillimit?.toLowerCase().includes(search.toLowerCase()) ||
+  record.data_perfundimit?.toLowerCase().includes(search.toLowerCase()) ||
+  record.statusi?.toLowerCase().includes(search.toLowerCase())    
+  );
+
   return (
     <div className="container mt-5">
       <h1>Service Records</h1>
+
+      <input
+        type="text"
+        placeholder="Search service records..."
+        className="form-control mb-3"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -223,7 +242,7 @@ function ServiceRecords() {
         </thead>
 
         <tbody>
-          {serviceRecords.map((record) => (
+          {filteredServiceRecords.map((record) => (
             <tr key={record.id}>
               <td>{record.id}</td>
               <td>{record.appointment_id}</td>

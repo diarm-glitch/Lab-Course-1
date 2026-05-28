@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 const Technicians = () => {
   const [technicians, setTechnicians] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     user_id: "",
@@ -109,9 +110,25 @@ const Technicians = () => {
     }
   };
 
+  const filteredTechnicians = technicians.filter((technician) =>
+  technician.emri?.toLowerCase().includes(search.toLowerCase()) ||
+  technician.mbiemri?.toLowerCase().includes(search.toLowerCase()) ||
+  technician.specializimi?.toLowerCase().includes(search.toLowerCase()) ||
+  technician.telefoni?.toLowerCase().includes(search.toLowerCase()) ||
+  String(technician.user_id).includes(search)
+  );
+
   return (
     <div className="container mt-5">
       <h1>Technicians</h1>
+
+      <input
+        type="text"
+        placeholder="Search technicians..."
+        className="form-control mb-3"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form className="mb-4" onSubmit={handleSubmit}>
         <div className="row">
@@ -198,7 +215,7 @@ const Technicians = () => {
         </thead>
 
         <tbody>
-          {technicians.map((technician) => (
+          {filteredTechnicians.map((technician) => (
             <tr key={technician.id}>
               <td>{technician.id}</td>
               <td>{technician.user_id}</td>

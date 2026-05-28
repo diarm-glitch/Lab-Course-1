@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function Roles() {
   const [roles, setRoles] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     emertimi: "",
@@ -100,9 +101,23 @@ function Roles() {
     }
   };
 
+  const filteredRoles = roles.filter((role) =>
+  role.emertimi?.toLowerCase().includes(search.toLowerCase()) ||
+  role.pershkrimi?.toLowerCase().includes(search.toLowerCase()) ||
+  role.normalized_name?.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
       <h1>Roles</h1>
+
+      <input
+        type="text"
+        placeholder="Search roles..."
+        className="form-control mb-3"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -165,7 +180,7 @@ function Roles() {
         </thead>
 
         <tbody>
-          {roles.map((role) => (
+          {filteredRoles.map((role) => (
             <tr key={role.id}>
               <td>{role.id}</td>
               <td>{role.emertimi}</td>

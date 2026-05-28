@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     emri: "",
@@ -108,9 +109,25 @@ function Users() {
     }
   };
 
+  const filteredUsers = users.filter((user) =>
+  user.emri?.toLowerCase().includes(search.toLowerCase()) ||
+  user.mbiemri?.toLowerCase().includes(search.toLowerCase()) ||
+  user.email?.toLowerCase().includes(search.toLowerCase()) ||
+  user.phone_number?.toLowerCase().includes(search.toLowerCase()) ||
+  user.statusi?.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
       <h1>Users</h1>
+
+      <input
+        type="text"
+        placeholder="Search users..."
+        className="form-control mb-3"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -201,7 +218,7 @@ function Users() {
         </thead>
 
         <tbody>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.emri}</td>

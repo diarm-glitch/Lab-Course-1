@@ -3,6 +3,7 @@ import API from "../api/api.js";
 
 function ServiceReminders() {
   const [serviceReminders, setServiceReminders] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     vehicle_id: "",
@@ -106,9 +107,25 @@ function ServiceReminders() {
     }
   };
 
+  const filteredServiceReminders = serviceReminders.filter((reminder) =>
+  String(reminder.vehicle_id).includes(search) ||
+  reminder.lloji_servisimit?.toLowerCase().includes(search.toLowerCase()) ||
+  reminder.data_ardhshme?.toLowerCase().includes(search.toLowerCase()) ||
+  String(reminder.kilometrazhi_ardhshem).includes(search) ||
+  reminder.statusi?.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
       <h1>Service Reminders</h1>
+
+      <input
+        type="text"
+        placeholder="Search service reminders..."
+        className="form-control mb-3"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="row">
@@ -194,7 +211,7 @@ function ServiceReminders() {
         </thead>
 
         <tbody>
-          {serviceReminders.map((reminder) => (
+          {filteredServiceReminders.map((reminder) => (
             <tr key={reminder.id}>
               <td>{reminder.id}</td>
               <td>{reminder.vehicle_id}</td>

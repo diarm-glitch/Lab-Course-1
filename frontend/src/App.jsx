@@ -57,9 +57,13 @@ function HomePage() {
 
 function AdminLayout({ children }) {
   return (
-    <div className="d-flex">
+    <div className="d-flex vh-100 overflow-hidden">
       <Sidebar />
-      <div className="flex-grow-1 p-4">
+      <div className="flex-grow-1 overflow-auto"
+        style={{scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+        >
         {children}
       </div>
     </div>
