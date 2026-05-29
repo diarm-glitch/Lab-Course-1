@@ -7,7 +7,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="bg-dark text-white p-3" style={{ width: "250px", minHeight: "100vh", overflowY: "auto", flexShrink: 0, }}>
+    <div className="bg-dark text-white p-3" style={{ width: "250px", minHeight: "100vh", overflowY: "auto", flexShrink: 0,  background: "linear-gradient(180deg, #1E88E5, #42A5F5)", boxShadow: "4px 0 15px rgba(0,0,0,0.15)" }}>
       <h4 className="mb-4">Vehicle Service</h4>
 
       <ul className="nav flex-column">

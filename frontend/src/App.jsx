@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Customers from "./pages/Customers";
 
@@ -29,6 +29,7 @@ import Users from "./pages/Users";
 import UserClaims from "./pages/UserClaims";
 import UserTokens from "./pages/UserTokens";
 import MechanicApplication from "./pages/MechanicApplication";
+import EmergencyPickup from "./pages/EmergencyPickup";
 
 function HomePage() {
   return (
@@ -41,9 +42,9 @@ function HomePage() {
         <p>Book services, find mechanics, or get help instantly</p>
 
         <div className="hero-buttons">
-          <a href="#" className="book-btn">Book a Service</a>
-          <a href="#" className="outline-btn">Buy or Sell Cars</a>
-          <a href="#" className="outline-btn">Emergency Pickup</a>
+          <a href="#services" className="book-btn">Book a Service</a>
+          <a href="#buysell" className="outline-btn">Buy or Sell Cars</a>
+          <Link to="/emergency-pickup" className="outline-btn"> Emergency Pickup </Link>
         </div>
       </section>
     </header>
@@ -86,6 +87,8 @@ function App() {
       <Route path="/contact" element={<Contact />} />
 
       <Route path="/mechanic-application" element={<MechanicApplication />} />
+
+      <Route path="/emergency-pickup" element={<EmergencyPickup />}/>
 
       <Route 
       path="/dashboard" 

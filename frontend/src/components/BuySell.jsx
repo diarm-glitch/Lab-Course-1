@@ -11,7 +11,7 @@ function BuySell() {
       : "Search reviews...";
 
   return (
-    <section id="buy" className="buy-section">
+    <section id="buysell" className="buy-section">
       <h2>
         BROWSE, BUY, SELL
         <br />
