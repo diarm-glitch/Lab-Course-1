@@ -21,6 +21,35 @@ exports.getVehicleById = (req, res) => {
   });
 };
 
+exports.getMyVehicles = (req, res) => {
+  const userId = req.params.userId;
+
+  const sql = `
+    SELECT 
+      v.*,
+      sr.statusi AS service_status,
+      sr.pershkrimi AS service_description,
+      sr.data_fillimit,
+      sr.data_perfundimit
+    FROM Vehicles v
+    INNER JOIN Customers c ON v.customer_id = c.id
+    LEFT JOIN ServiceRecords sr ON sr.vehicle_id = v.id
+    WHERE c.user_id = ?
+    ORDER BY sr.id DESC
+  `;
+
+  db.query(sql, [userId], (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Database error",
+        error: err,
+      });
+    }
+
+    res.status(200).json(results);
+  });
+};
+
 exports.createVehicle = (req, res) => {
   const { customer_id, marka, modeli, viti, targa, kilometrazhi, ngjyra } = req.body;
 

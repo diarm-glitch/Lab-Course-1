@@ -13,49 +13,42 @@ function Sidebar() {
       <h4 className="mb-4">Vehicle Service</h4>
 
       <ul className="nav flex-column">
-        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard">Dashboard</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/customers">Customers</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/vehicles">Vehicles</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/service-types">Service Types</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/technicians">Technicians</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/appointments">Appointments</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/service-records">Service Records</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/parts">Parts</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/service-parts">Service Parts</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/invoices">Invoices</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/service-reminders">Service Reminders</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/contact-messages">Contact Messages</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/emergency-pickups">Emergency Pickups</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/mechanic-applications">Mechanic Applications</Link></li>
-
-        <hr />
-
-        {role === "Admin" && (
+        {(role === "Admin" || role === "Staff") && (
   <>
-    <hr />
-
-    <li className="nav-item">
-      <Link className="nav-link text-white" to="/users">Users</Link>
-    </li>
-
-    <li className="nav-item">
-      <Link className="nav-link text-white" to="/roles">Roles</Link>
-    </li>
-
-    <li className="nav-item">
-      <Link className="nav-link text-white" to="/user-roles">User Roles</Link>
-    </li>
-
-    <li className="nav-item">
-      <Link className="nav-link text-white" to="/user-claims">User Claims</Link>
-    </li>
-
-    <li className="nav-item">
-      <Link className="nav-link text-white" to="/user-tokens">User Tokens</Link>
-    </li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard">Dashboard</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/customers">Customers</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/vehicles">Vehicles</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/service-types">Service Types</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/technicians">Technicians</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/appointments">Appointments</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/service-records">Service Records</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/parts">Parts</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/service-parts">Service Parts</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/invoices">Invoices</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/service-reminders">Service Reminders</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/contact-messages">Contact Messages</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/emergency-pickups">Emergency Pickups</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/mechanic-applications">Mechanic Applications</Link></li>
   </>
 )}
 
+{role === "Admin" && (
+  <>
+    <hr />
+    <li className="nav-item"><Link className="nav-link text-white" to="/users">Users</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/roles">Roles</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/user-roles">User Roles</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/user-claims">User Claims</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/user-tokens">User Tokens</Link></li>
+  </>
+)}
+
+{role === "User" && (
+  <>
+    <li className="nav-item"><Link className="nav-link text-white" to="/profile">My Profile</Link></li>
+    <li className="nav-item"><Link className="nav-link text-white" to="/car-status">Your Car Status</Link></li>
+  </>
+)}
         <li className="nav-item mt-4">
           <button className="btn btn-danger w-100" onClick={handleLogout}>
             Logout

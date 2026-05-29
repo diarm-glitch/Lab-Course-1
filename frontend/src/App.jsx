@@ -33,6 +33,8 @@ import EmergencyPickup from "./pages/EmergencyPickup";
 import ContactMessages from "./pages/ContactMessages";
 import EmergencyPickups from "./pages/EmergencyPickups";
 import MechanicApplications from "./pages/MechanicApplications";
+import Profile from "./pages/Profile";
+import CarStatus from "./pages/CarStatus";
 
 function HomePage() {
   return (
@@ -96,7 +98,7 @@ function App() {
       <Route 
       path="/dashboard" 
       element = {
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Dashboard />
           </AdminLayout>
@@ -106,7 +108,7 @@ function App() {
       <Route 
       path="/customers"
       element = {
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Customers />
           </AdminLayout>
@@ -117,7 +119,7 @@ function App() {
       <Route 
       path="/Vehicles"
       element = {
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Vehicles />
           </AdminLayout>
@@ -128,7 +130,7 @@ function App() {
       <Route
       path="/service-types"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <ServiceTypes />
           </AdminLayout>
@@ -139,7 +141,7 @@ function App() {
       <Route
       path="/technicians"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Technicians />
           </AdminLayout>
@@ -150,7 +152,7 @@ function App() {
       <Route
       path="/appointments"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Appointments />
           </AdminLayout>
@@ -161,7 +163,7 @@ function App() {
       <Route
       path="/parts"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Parts />
           </AdminLayout>
@@ -172,7 +174,7 @@ function App() {
       <Route
       path="/service-records"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <ServiceRecords />
           </AdminLayout>
@@ -183,7 +185,7 @@ function App() {
       <Route 
       path="/service-parts"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <ServiceParts />
           </AdminLayout>
@@ -194,7 +196,7 @@ function App() {
       <Route
       path="/invoices"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <Invoices />
           </AdminLayout>
@@ -205,7 +207,7 @@ function App() {
       <Route 
       path="/service-reminders"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <ServiceReminders />
           </AdminLayout>
@@ -217,7 +219,9 @@ function App() {
       path="/roles"
       element={
         <ProtectedRoute allowedRoles={["Admin"]}>
+          <AdminLayout>
             <Roles />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -226,7 +230,9 @@ function App() {
       path="/user-roles"
       element={
         <ProtectedRoute allowedRoles={["Admin"]}>
+          <AdminLayout>
             <UserRoles />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -235,7 +241,9 @@ function App() {
       path="/users"
       element={
         <ProtectedRoute allowedRoles={["Admin"]}>
+          <AdminLayout>
             <Users />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -244,7 +252,9 @@ function App() {
       path="/user-claims"
       element={
       <ProtectedRoute allowedRoles={["Admin"]}>
+        <AdminLayout>
           <UserClaims />
+        </AdminLayout>
       </ProtectedRoute>
       }
       />
@@ -253,7 +263,9 @@ function App() {
       path="/user-tokens"
       element={
         <ProtectedRoute allowedRoles={["Admin"]}>
+          <AdminLayout>
             <UserTokens />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -261,7 +273,7 @@ function App() {
       <Route
       path="/dashboard/contact-messages"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
             <AdminLayout>
               <ContactMessages />
             </AdminLayout>
@@ -272,7 +284,7 @@ function App() {
       <Route
       path="/dashboard/emergency-pickups"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <EmergencyPickups />
           </AdminLayout>
@@ -283,9 +295,31 @@ function App() {
       <Route
       path="/dashboard/mechanic-applications"
       element={
-        <ProtectedRoute>
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <MechanicApplications />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/profile"
+      element={
+        <ProtectedRoute allowedRoles={["User", "user"]}>
+          <AdminLayout>
+            <Profile />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/car-status"
+      element={
+        <ProtectedRoute allowedRoles={["User", "user"]}>
+          <AdminLayout>
+            <CarStatus />
           </AdminLayout>
         </ProtectedRoute>
       }

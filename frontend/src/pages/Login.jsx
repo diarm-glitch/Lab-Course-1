@@ -19,12 +19,23 @@ function Login() {
 
             console.log(response.data);
 
+            console.log("ROLE IS:", response.data.user.role);
+
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("role", response.data.user.role);
-
+            localStorage.setItem("userId", response.data.user.id);
+            localStorage.setItem("emri", response.data.user.emri);
+            localStorage.setItem("mbiemri", response.data.user.mbiemri);
+            
             alert("Login successful");
 
+            const userRole = response.data.user.role;
+
+            if (userRole === "User") {
+            window.location.href = "/profile";
+            } else {
             window.location.href = "/dashboard";
+            }
 
         } catch (error) {
 
