@@ -20,6 +20,7 @@ function Login() {
             console.log(response.data);
 
             localStorage.setItem("token", response.data.token);
+            localStorage.setItem("role", response.data.user.role);
 
             alert("Login successful");
 

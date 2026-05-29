@@ -15,7 +15,15 @@ exports.register = async (req, res) => {
     return res.status(400).json({ message: 'Please fill all required fields' });
   }
 
-    db.query('SELECT * FROM Users WHERE email = ?', [email], async (err, results) => {
+    db.query(`
+    SELECT
+        u.*,
+        r.emertimi AS role_name
+    FROM Users u
+    LEFT JOIN UserRoles ur ON u.id = ur.user_id
+    LEFT JOIN Roles r ON ur.role_id = r.id
+    WHERE u.email = ?`,
+   [email], async (err, results) => {
     if (err) {
         return res.status(500).json({ message: 'Database error', error: err });
     }
@@ -54,7 +62,15 @@ exports.login = (req, res) => {
         return res.status(400).json({message: 'Email and password are reuqired'});
     }
 
-    db.query('SELECT * FROM Users WHERE email = ?', [email], async (err, results) => {
+    db.query(`
+    SELECT
+        u.*,
+        r.emertimi AS role_name
+    FROM Users u
+    LEFT JOIN UserRoles ur ON u.id = ur.user_id
+    LEFT JOIN Roles r ON ur.role_id = r.id
+    WHERE u.email = ?`,
+   [email], async (err, results) => {
         if (err) {
             return res.status(500).json({message: 'Database error', error: err});
         }
@@ -91,7 +107,8 @@ exports.login = (req, res) => {
                 id:user.id,
                 emri:user.emri,
                 mbiemri:user.mbiemri,
-                email:user.email
+                email:user.email,
+                role:user.role_name
             }
         });
     });

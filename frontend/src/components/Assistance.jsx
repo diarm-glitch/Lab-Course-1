@@ -38,7 +38,7 @@ function Assistance() {
         </div>
       </div>
 
-      <a href="#" className="package-btn">Pakot</a>
+      <a href="#" className="package-btn">Packages</a>
     </section>
   );
 }

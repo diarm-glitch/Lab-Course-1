@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const handleLogout = () => {
+  const role = localStorage.getItem("role");
+
+  const handleLogout = () => {  
     localStorage.removeItem("token");
     window.location.href = "/login";
   };
@@ -25,11 +27,31 @@ function Sidebar() {
 
         <hr />
 
-        <li className="nav-item"><Link className="nav-link text-white" to="/users">Users</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/roles">Roles</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/user-roles">User Roles</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/user-claims">User Claims</Link></li>
-        <li className="nav-item"><Link className="nav-link text-white" to="/user-tokens">User Tokens</Link></li>
+        {role === "Admin" && (
+  <>
+    <hr />
+
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/users">Users</Link>
+    </li>
+
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/roles">Roles</Link>
+    </li>
+
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/user-roles">User Roles</Link>
+    </li>
+
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/user-claims">User Claims</Link>
+    </li>
+
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/user-tokens">User Tokens</Link>
+    </li>
+  </>
+)}
 
         <li className="nav-item mt-4">
           <button className="btn btn-danger w-100" onClick={handleLogout}>

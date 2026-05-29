@@ -23,9 +23,8 @@ function Contact() {
                   <textarea className="form-control" rows="4" placeholder="Write your message"></textarea>
                 </div>
                 <button type="button" className="btn contact-btn w-100">
-
-                </button>
                   Send Message
+                </button>
               </form>
             </div>
           </div>
