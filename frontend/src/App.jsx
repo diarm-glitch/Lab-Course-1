@@ -213,10 +213,8 @@ function App() {
       <Route
       path="/roles"
       element={
-        <ProtectedRoute>
-          <AdminLayout>
+        <ProtectedRoute allowedRoles={["Admin"]}>
             <Roles />
-          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -224,10 +222,8 @@ function App() {
       <Route
       path="/user-roles"
       element={
-        <ProtectedRoute>
-          <AdminLayout>
+        <ProtectedRoute allowedRoles={["Admin"]}>
             <UserRoles />
-          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -235,10 +231,8 @@ function App() {
       <Route 
       path="/users"
       element={
-        <ProtectedRoute>
-          <AdminLayout>
+        <ProtectedRoute allowedRoles={["Admin"]}>
             <Users />
-          </AdminLayout>
         </ProtectedRoute>
       }
       />
@@ -246,10 +240,8 @@ function App() {
       <Route
       path="/user-claims"
       element={
-      <ProtectedRoute>
-        <AdminLayout>
+      <ProtectedRoute allowedRoles={["Admin"]}>
           <UserClaims />
-        </AdminLayout>
       </ProtectedRoute>
       }
       />
@@ -257,10 +249,8 @@ function App() {
       <Route
       path="/user-tokens"
       element={
-        <ProtectedRoute>
-          <AdminLayout>
+        <ProtectedRoute allowedRoles={["Admin"]}>
             <UserTokens />
-          </AdminLayout>
         </ProtectedRoute>
       }
       />
