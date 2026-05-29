@@ -9,6 +9,7 @@ import BuySell from "./components/BuySell";
 import Assistance from "./components/Assistance";
 import Footer from "./components/Footer"
 import Sidebar from "./components/Sidebar";
+import Contact from "./components/Contact";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -27,6 +28,7 @@ import UserRoles from "./pages/UserRoles";
 import Users from "./pages/Users";
 import UserClaims from "./pages/UserClaims";
 import UserTokens from "./pages/UserTokens";
+import MechanicApplication from "./pages/MechanicApplication";
 
 function HomePage() {
   return (
@@ -80,6 +82,10 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       <Route path="/register" element={<Register />} />
+
+      <Route path="/contact" element={<Contact />} />
+
+      <Route path="/mechanic-application" element={<MechanicApplication />} />
 
       <Route 
       path="/dashboard" 

@@ -849,3 +849,33 @@ html {
 .register-text {
   margin-top: 25px;
 }
+
+
+/*CONTACT*/
+
+.contact-section {
+  background: #f1f6ff;
+  min-height: 100vh;
+}
+
+.contact-title {
+  color: #078af2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.contact-card {
+  border-radius: 12px;
+  border: none;
+}
+
+.contact-btn {
+  background: linear-gradient(90deg, #1E88E5, #42A5F5);
+  color: white;
+  font-weight: 600;
+}
+
+.contact-btn:hover {
+  color: white;
+  transform: translateY(-2px);
+}

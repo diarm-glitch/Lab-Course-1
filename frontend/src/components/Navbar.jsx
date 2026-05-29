@@ -13,9 +13,9 @@ function Navbar() {
 
       <div className="nav-links">
         <a href="#about">About Us</a>
-        <a href="#">Apply to be a mechanic</a>
+       <Link to="/mechanic-application"> Apply to be a mechanic</Link>
         <a href="#services">Our Services</a>
-        <a href="#">Contact Us</a>
+        <a href="/contact">Contact Us</a>
       </div>
 
       <div className="nav-actions">
