@@ -1,5 +1,3 @@
-import React from "react";
-
 function Profile() {
   const userId = localStorage.getItem("userId");
   const emri = localStorage.getItem("emri");

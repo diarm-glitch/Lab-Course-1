@@ -1,70 +1,89 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Sidebar() {
 
-  const handleLogout = () => {  
+  const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = "/login";
   };
 
-  const userId = localStorage.getItem("userId");
-  const emri = localStorage.getItem("emri");
-  const mbiemri = localStorage.getItem("mbiemri");
   const role = localStorage.getItem("role");
 
+  const getNavClass = ({ isActive }) =>
+    isActive
+      ? "nav-link text-white active-sidebar-link"
+      : "nav-link text-white";
+
   return (
-    <div className="bg-dark text-white p-3" style={{ width: "250px", minHeight: "100vh", overflowY: "auto", flexShrink: 0,  background: "linear-gradient(180deg, #1E88E5, #42A5F5)", boxShadow: "4px 0 15px rgba(0,0,0,0.15)" }}>
+    <div
+      className="bg-dark text-white p-3"
+      style={{
+        width: "250px",
+        minHeight: "100vh",
+        overflowY: "auto",
+        flexShrink: 0,
+        background: "linear-gradient(180deg, #1E88E5, #42A5F5)",
+        boxShadow: "4px 0 15px rgba(0,0,0,0.15)",
+      }}
+    >
       <h4 className="mb-4">Vehicle Service</h4>
 
       <ul className="nav flex-column">
 
+        <li className="nav-item mb-3">
+          <Link to="/" className="btn btn-light w-100" style={{ fontWeight: "700" }}>
+            Back home
+          </Link>
+        </li>
 
         {role === "Staff" && (
-          <li className="nav-item"><Link className="nav-link text-white" to="/staff-profile">Staff Profile</Link></li>
+          <li className="nav-item"><NavLink to="/staff-profile" className={getNavClass}>Staff Profile</NavLink></li>
         )}
 
         {(role === "Admin" || role === "Staff") && (
-  <>
-    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard">Dashboard</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/customers">Customers</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/vehicles">Vehicles</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/service-types">Service Types</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/technicians">Technicians</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/appointments">Appointments</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/service-records">Service Records</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/parts">Parts</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/service-parts">Service Parts</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/invoices">Invoices</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/service-reminders">Service Reminders</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/contact-messages">Contact Messages</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/emergency-pickups">Emergency Pickups</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/mechanic-applications">Mechanic Applications</Link></li>
-  </>
-)}
+          <>
+            <li className="nav-item"><NavLink to="/dashboard" className={getNavClass}>Dashboard</NavLink></li>
+            <li className="nav-item"><NavLink to="/customers" className={getNavClass}>Customers</NavLink></li>
+            <li className="nav-item"><NavLink to="/vehicles" className={getNavClass}>Vehicles</NavLink></li>
+            <li className="nav-item"><NavLink to="/service-types" className={getNavClass}>Service Types</NavLink></li>
+            <li className="nav-item"><NavLink to="/technicians" className={getNavClass}>Technicians</NavLink></li>
+            <li className="nav-item"><NavLink to="/appointments" className={getNavClass}>Appointments</NavLink></li>
+            <li className="nav-item"><NavLink to="/service-records" className={getNavClass}>Service Records</NavLink></li>
+            <li className="nav-item"><NavLink to="/parts" className={getNavClass}>Parts</NavLink></li>
+            <li className="nav-item"><NavLink to="/service-parts" className={getNavClass}>Service Parts</NavLink></li>
+            <li className="nav-item"><NavLink to="/invoices" className={getNavClass}>Invoices</NavLink></li>
+            <li className="nav-item"><NavLink to="/service-reminders" className={getNavClass}>Service Reminders</NavLink></li>
+            <li className="nav-item"><NavLink to="/dashboard/contact-messages" className={getNavClass}>Contact Messages</NavLink></li>
+            <li className="nav-item"><NavLink to="/dashboard/emergency-pickups" className={getNavClass}>Emergency Pickups</NavLink></li>
+            <li className="nav-item"><NavLink to="/dashboard/mechanic-applications" className={getNavClass}>Mechanic Applications</NavLink></li>
+          </>
+        )}
 
-{role === "Admin" && (
-  <>
-    <hr />
-    <li className="nav-item"><Link className="nav-link text-white" to="/admin-profile">Admin Profile</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/users">Users</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/roles">Roles</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/user-roles">User Roles</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/user-claims">User Claims</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/user-tokens">User Tokens</Link></li>
-  </>
-)}
+        {role === "Admin" && (
+          <>
+            <hr />
+            <li className="nav-item"><NavLink to="/admin-profile" className={getNavClass}>Admin Profile</NavLink></li>
+            <li className="nav-item"><NavLink to="/users" className={getNavClass}>Users</NavLink></li>
+            <li className="nav-item"><NavLink to="/roles" className={getNavClass}>Roles</NavLink></li>
+            <li className="nav-item"><NavLink to="/user-roles" className={getNavClass}>User Roles</NavLink></li>
+            <li className="nav-item"><NavLink to="/user-claims" className={getNavClass}>User Claims</NavLink></li>
+            <li className="nav-item"><NavLink to="/user-tokens" className={getNavClass}>User Tokens</NavLink></li>
+          </>
+        )}
 
-{role === "User" && (
-  <>
-    <li className="nav-item"><Link className="nav-link text-white" to="/profile">My Profile</Link></li>
-    <li className="nav-item"><Link className="nav-link text-white" to="/car-status">Your Car Status</Link></li>
-  </>
-)}
+        {role === "User" && (
+          <>
+            <li className="nav-item"><NavLink to="/profile" className={getNavClass}>My Profile</NavLink></li>
+            <li className="nav-item"><NavLink to="/car-status" className={getNavClass}>Your Car Status</NavLink></li>
+          </>
+        )}
+
         <li className="nav-item mt-4">
           <button className="btn btn-danger w-100" onClick={handleLogout}>
             Logout
           </button>
         </li>
+
       </ul>
     </div>
   );
