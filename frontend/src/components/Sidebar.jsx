@@ -24,6 +24,9 @@ function Sidebar() {
         <li className="nav-item"><Link className="nav-link text-white" to="/service-parts">Service Parts</Link></li>
         <li className="nav-item"><Link className="nav-link text-white" to="/invoices">Invoices</Link></li>
         <li className="nav-item"><Link className="nav-link text-white" to="/service-reminders">Service Reminders</Link></li>
+        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/contact-messages">Contact Messages</Link></li>
+        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/emergency-pickups">Emergency Pickups</Link></li>
+        <li className="nav-item"><Link className="nav-link text-white" to="/dashboard/mechanic-applications">Mechanic Applications</Link></li>
 
         <hr />
 

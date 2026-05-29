@@ -20,11 +20,15 @@ const rolesRoutes = require('./routes/roles.routes');
 const userRolesRoutes = require('./routes/userRoles.routes');
 const userClaimsRoutes = require('./routes/userClaims.routes');
 const userTokensRoutes = require('./routes/userTokens.routes');
+const mechanicApplicationRoutes = require("./routes/mechanicApplication.routes");
+const contactMessageRoutes = require("./routes/contactMessage.routes");
+const emergencyPickupRoutes = require("./routes/emergencyPickup.routes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
 app.use('/auth', authRoutes);
 
@@ -59,6 +63,12 @@ app.use('/user-roles', userRolesRoutes);
 app.use('/user-claims', userClaimsRoutes);
 
 app.use('/user-tokens', userTokensRoutes);
+
+app.use("/mechanic-applications", mechanicApplicationRoutes);
+
+app.use("/contact-messages", contactMessageRoutes);
+
+app.use("/emergency-pickups", emergencyPickupRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running');

@@ -30,6 +30,9 @@ import UserClaims from "./pages/UserClaims";
 import UserTokens from "./pages/UserTokens";
 import MechanicApplication from "./pages/MechanicApplication";
 import EmergencyPickup from "./pages/EmergencyPickup";
+import ContactMessages from "./pages/ContactMessages";
+import EmergencyPickups from "./pages/EmergencyPickups";
+import MechanicApplications from "./pages/MechanicApplications";
 
 function HomePage() {
   return (
@@ -251,6 +254,39 @@ function App() {
       element={
         <ProtectedRoute allowedRoles={["Admin"]}>
             <UserTokens />
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/dashboard/contact-messages"
+      element={
+        <ProtectedRoute>
+            <AdminLayout>
+              <ContactMessages />
+            </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/dashboard/emergency-pickups"
+      element={
+        <ProtectedRoute>
+          <AdminLayout>
+            <EmergencyPickups />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/dashboard/mechanic-applications"
+      element={
+        <ProtectedRoute>
+          <AdminLayout>
+            <MechanicApplications />
+          </AdminLayout>
         </ProtectedRoute>
       }
       />
