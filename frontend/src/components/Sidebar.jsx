@@ -1,18 +1,28 @@
 import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const role = localStorage.getItem("role");
 
   const handleLogout = () => {  
     localStorage.removeItem("token");
     window.location.href = "/login";
   };
 
+  const userId = localStorage.getItem("userId");
+  const emri = localStorage.getItem("emri");
+  const mbiemri = localStorage.getItem("mbiemri");
+  const role = localStorage.getItem("role");
+
   return (
     <div className="bg-dark text-white p-3" style={{ width: "250px", minHeight: "100vh", overflowY: "auto", flexShrink: 0,  background: "linear-gradient(180deg, #1E88E5, #42A5F5)", boxShadow: "4px 0 15px rgba(0,0,0,0.15)" }}>
       <h4 className="mb-4">Vehicle Service</h4>
 
       <ul className="nav flex-column">
+
+
+        {role === "Staff" && (
+          <li className="nav-item"><Link className="nav-link text-white" to="/staff-profile">Staff Profile</Link></li>
+        )}
+
         {(role === "Admin" || role === "Staff") && (
   <>
     <li className="nav-item"><Link className="nav-link text-white" to="/dashboard">Dashboard</Link></li>
@@ -35,6 +45,7 @@ function Sidebar() {
 {role === "Admin" && (
   <>
     <hr />
+    <li className="nav-item"><Link className="nav-link text-white" to="/admin-profile">Admin Profile</Link></li>
     <li className="nav-item"><Link className="nav-link text-white" to="/users">Users</Link></li>
     <li className="nav-item"><Link className="nav-link text-white" to="/roles">Roles</Link></li>
     <li className="nav-item"><Link className="nav-link text-white" to="/user-roles">User Roles</Link></li>

@@ -35,6 +35,8 @@ import EmergencyPickups from "./pages/EmergencyPickups";
 import MechanicApplications from "./pages/MechanicApplications";
 import Profile from "./pages/Profile";
 import CarStatus from "./pages/CarStatus";
+import AdminProfile from "./pages/AdminProfile";
+import StaffProfile from "./pages/StaffProfile";
 
 function HomePage() {
   return (
@@ -271,6 +273,17 @@ function App() {
       />
 
       <Route
+      path="/admin-profile"
+      element={
+        <ProtectedRoute allowedRoles={["Admin"]}>
+          <AdminLayout>
+            <AdminProfile />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
       path="/dashboard/contact-messages"
       element={
         <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
@@ -298,6 +311,17 @@ function App() {
         <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
           <AdminLayout>
             <MechanicApplications />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/staff-profile"
+      element={
+        <ProtectedRoute allowedRoles={["Staff"]}>
+          <AdminLayout>
+            <StaffProfile />
           </AdminLayout>
         </ProtectedRoute>
       }
