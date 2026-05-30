@@ -47,6 +47,8 @@ import ServicingRequests from "./pages/ServicingRequests";
 import MyServicingRequests from "./pages/MyServicingRequests";
 import PrePurchaseInspectionRequests from "./pages/PrePurchaseInspectionRequests";
 import MyPrePurchaseInspectionRequests from "./pages/MyPrePurchaseInspectionRequests";
+import RoadsideSubscription from "./pages/RoadsideSubscription";
+import RoadsideSubscriptions from "./pages/RoadsideSubscriptions";
 
 function HomePage() {
   return (
@@ -363,6 +365,17 @@ function App() {
       />
 
       <Route
+      path="/dashboard/roadside-subscriptions"
+      element={
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
+          <AdminLayout>
+            <RoadsideSubscriptions />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
       path="/staff-profile"
       element={
         <ProtectedRoute allowedRoles={["Staff"]}>
@@ -376,7 +389,7 @@ function App() {
       <Route
       path="/profile"
       element={
-        <ProtectedRoute allowedRoles={["User", "user"]}>
+        <ProtectedRoute allowedRoles={["User", "user", "Premium User"]}>
           <AdminLayout>
             <Profile />
           </AdminLayout>
@@ -387,7 +400,7 @@ function App() {
       <Route
       path="/car-status"
       element={
-        <ProtectedRoute allowedRoles={["User", "user"]}>
+        <ProtectedRoute allowedRoles={["User", "user", "Premium User"]}>
           <AdminLayout>
             <CarStatus />
           </AdminLayout>
@@ -398,7 +411,7 @@ function App() {
       <Route
       path="/my-servicing-requests"
       element={
-        <ProtectedRoute allowedRoles={["User", "user"]}>
+        <ProtectedRoute allowedRoles={["User", "user", "Premium User"]}>
           <AdminLayout>
             <MyServicingRequests />
           </AdminLayout>
@@ -409,9 +422,20 @@ function App() {
       <Route
       path="/my-pre-purchase-inspection-requests"
       element={
-        <ProtectedRoute allowedRoles={["User"]}>
+        <ProtectedRoute allowedRoles={["User", "User", "Premium User"]}>
           <AdminLayout>
             <MyPrePurchaseInspectionRequests />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/roadside-subscription"
+      element={
+        <ProtectedRoute allowedRoles={["User", "user", "Premium User"]}>
+          <AdminLayout>
+            <RoadsideSubscription />
           </AdminLayout>
         </ProtectedRoute>
       }

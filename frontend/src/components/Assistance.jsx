@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Assistance() {
   return (
     <section id="assistance" className="assistance">
@@ -38,7 +40,9 @@ function Assistance() {
         </div>
       </div>
 
-      <a href="#" className="package-btn">Packages</a>
+      <Link to="/roadside-subscription" className="package-btn">
+        Subscribe
+      </Link>
     </section>
   );
 }

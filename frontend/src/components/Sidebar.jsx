@@ -58,6 +58,7 @@ function Sidebar() {
             <li className="nav-item"><NavLink to="/dashboard/mechanic-applications" className={getNavClass}>Mechanic Applications</NavLink></li>
             <li className="nav-item"><NavLink to="/dashboard/servicing-requests" className={getNavClass}>Servicing Requests</NavLink></li>
             <li className="nav-item"><NavLink to="/dashboard/pre-purchase-inspection-requests" className={getNavClass}>Pre-Purchase Requests</NavLink></li>
+            <li className="nav-item"><NavLink to="/dashboard/roadside-subscriptions" className={getNavClass}>Roadside Subscriptions</NavLink></li>
           </>
         )}
 
@@ -73,7 +74,7 @@ function Sidebar() {
           </>
         )}
 
-        {role === "User" && (
+        {(role === "User" || role === "user" || role === "Premium User") && (
           <>
             <li className="nav-item"><NavLink to="/profile" className={getNavClass}>My Profile</NavLink></li>
             <li className="nav-item"><NavLink to="/car-status" className={getNavClass}>Your Car Status</NavLink></li>

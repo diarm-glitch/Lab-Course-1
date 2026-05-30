@@ -79,7 +79,9 @@ exports.login = (req, res) => {
             return res.status(400).json({message: 'Invalid email or password'});
         }
 
-        const user = results[0];
+        const user =
+            results.find(r => r.role_name === "Premium User") ||
+            results[0];
 
         const isMatch = await bcrypt.compare(password, user.password_hash);
 
