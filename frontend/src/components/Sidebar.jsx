@@ -56,6 +56,8 @@ function Sidebar() {
             <li className="nav-item"><NavLink to="/dashboard/contact-messages" className={getNavClass}>Contact Messages</NavLink></li>
             <li className="nav-item"><NavLink to="/dashboard/emergency-pickups" className={getNavClass}>Emergency Pickups</NavLink></li>
             <li className="nav-item"><NavLink to="/dashboard/mechanic-applications" className={getNavClass}>Mechanic Applications</NavLink></li>
+            <li className="nav-item"><NavLink to="/dashboard/servicing-requests" className={getNavClass}>Servicing Requests</NavLink></li>
+            <li className="nav-item"><NavLink to="/dashboard/pre-purchase-inspection-requests" className={getNavClass}>Pre-Purchase Requests</NavLink></li>
           </>
         )}
 
@@ -75,6 +77,8 @@ function Sidebar() {
           <>
             <li className="nav-item"><NavLink to="/profile" className={getNavClass}>My Profile</NavLink></li>
             <li className="nav-item"><NavLink to="/car-status" className={getNavClass}>Your Car Status</NavLink></li>
+            <li className="nav-item"><NavLink to="/my-servicing-requests" className={getNavClass}>My Servicing Requests</NavLink></li>
+            <li className="nav-item"><NavLink to="/my-pre-purchase-inspection-requests"className={getNavClass}>My Inspection Requests</NavLink></li>
           </>
         )}
 

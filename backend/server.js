@@ -23,6 +23,8 @@ const userTokensRoutes = require('./routes/userTokens.routes');
 const mechanicApplicationRoutes = require("./routes/mechanicApplication.routes");
 const contactMessageRoutes = require("./routes/contactMessage.routes");
 const emergencyPickupRoutes = require("./routes/emergencyPickup.routes");
+const servicingRequestRoutes = require("./routes/servicingRequest.routes");
+const prePurchaseInspectionRequestRoutes = require("./routes/prePurchaseInspectionRequest.routes");
 
 const app = express();
 
@@ -69,6 +71,10 @@ app.use("/mechanic-applications", mechanicApplicationRoutes);
 app.use("/contact-messages", contactMessageRoutes);
 
 app.use("/emergency-pickups", emergencyPickupRoutes);
+
+app.use("/servicing-requests", servicingRequestRoutes);
+
+app.use("/pre-purchase-inspection-requests", prePurchaseInspectionRequestRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running');

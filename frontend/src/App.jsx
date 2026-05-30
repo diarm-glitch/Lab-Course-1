@@ -37,6 +37,16 @@ import Profile from "./pages/Profile";
 import CarStatus from "./pages/CarStatus";
 import AdminProfile from "./pages/AdminProfile";
 import StaffProfile from "./pages/StaffProfile";
+import Repairs from "./pages/Repairs";
+import Diagnostics from "./pages/Diagnostics";
+import Servicing from "./pages/Servicing";
+import Tyres from "./pages/Tyres";
+import Tuning from "./pages/Tuning";
+import PrePurchaseInspection from "./pages/PrePurchaseInspection";
+import ServicingRequests from "./pages/ServicingRequests";
+import MyServicingRequests from "./pages/MyServicingRequests";
+import PrePurchaseInspectionRequests from "./pages/PrePurchaseInspectionRequests";
+import MyPrePurchaseInspectionRequests from "./pages/MyPrePurchaseInspectionRequests";
 
 function HomePage() {
   return (
@@ -96,6 +106,20 @@ function App() {
       <Route path="/mechanic-application" element={<MechanicApplication />} />
 
       <Route path="/emergency-pickup" element={<EmergencyPickup />}/>
+
+      <Route path="/repairs" element={<Repairs />} />
+
+      <Route path="/diagnostics" element={<Diagnostics />} />
+
+      <Route path="/servicing" element={<Servicing />} />
+
+      <Route path="/tyres" element={<Tyres />} />
+
+      <Route path="/tuning" element={<Tuning />} />
+
+      <Route path="/pre-purchase-inspection" element={<PrePurchaseInspection />} />
+
+      <Route path="/servicing-requests" element={<ServicingRequests />} />
 
       <Route 
       path="/dashboard" 
@@ -317,6 +341,28 @@ function App() {
       />
 
       <Route
+      path="/dashboard/servicing-requests"
+      element={
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
+          <AdminLayout>
+            <ServicingRequests />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/dashboard/pre-purchase-inspection-requests"
+      element={
+        <ProtectedRoute allowedRoles={["Admin", "Staff"]}>
+          <AdminLayout>
+            <PrePurchaseInspectionRequests />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
       path="/staff-profile"
       element={
         <ProtectedRoute allowedRoles={["Staff"]}>
@@ -344,6 +390,28 @@ function App() {
         <ProtectedRoute allowedRoles={["User", "user"]}>
           <AdminLayout>
             <CarStatus />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/my-servicing-requests"
+      element={
+        <ProtectedRoute allowedRoles={["User", "user"]}>
+          <AdminLayout>
+            <MyServicingRequests />
+          </AdminLayout>
+        </ProtectedRoute>
+      }
+      />
+
+      <Route
+      path="/my-pre-purchase-inspection-requests"
+      element={
+        <ProtectedRoute allowedRoles={["User"]}>
+          <AdminLayout>
+            <MyPrePurchaseInspectionRequests />
           </AdminLayout>
         </ProtectedRoute>
       }
